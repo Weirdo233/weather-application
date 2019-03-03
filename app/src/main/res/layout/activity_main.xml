@@ -54,7 +54,7 @@
             android:onClick="btnClick"
             android:paddingLeft="40dp"
             android:paddingRight="40dp"
-            android:text="Go to Calendar"
+            android:text="Go to calendar"
             android:textColor="#50ffffff" />
     </LinearLayout>
 
@@ -74,24 +74,26 @@
                 android:id="@+id/linearLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
                 android:layout_margin="16dp"
-                android:gravity="center_vertical"
+                android:gravity="center"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/img_weather_condition"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                <TextView
+                    android:id="@+id/cond_forecast_0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    app:srcCompat="@drawable/rainy_up" />
+                    android:text="Sunny"
+                    android:textColor="@android:color/white"
+                    android:textSize="40dp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Location"
+                    android:text="-"
                     android:textColor="@android:color/white"
                     android:textStyle="bold" />
 
@@ -99,7 +101,17 @@
                     android:id="@+id/tv_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="03/03/2018"
+                    android:gravity="center_horizontal"
+                    android:text="-"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/day_forecast_0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="-"
+                    android:textAllCaps="true"
                     android:textColor="@android:color/white" />
 
             </LinearLayout>
@@ -114,11 +126,11 @@
 
 
                 <TextView
-                    android:id="@+id/temperature_of_the_day"
+                    android:id="@+id/temp_forecast_0"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
-                    android:text="28"
+                    android:text="-"
                     android:textColor="@android:color/white"
                     android:textSize="100sp"
                     android:textStyle="bold" />
@@ -126,8 +138,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignRight="@id/temperature_of_the_day"
-                    android:layout_alignTop="@id/temperature_of_the_day"
+                    android:layout_alignTop="@id/temp_forecast_0"
+                    android:layout_alignRight="@id/temp_forecast_0"
                     android:gravity="right"
                     android:text="°C"
                     android:textColor="@android:color/white"
@@ -167,19 +179,34 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:orientation="vertical"
             android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                app:srcCompat="@drawable/rainy_small" />
+            >
 
             <TextView
+                android:id="@+id/temp_forecast_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="35sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/cond_forecast_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sunny"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/day_forecast_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="mon"
+                android:text="-"
                 android:textAllCaps="true"
                 android:textColor="#909090" />
         </LinearLayout>
@@ -191,16 +218,30 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                app:srcCompat="@drawable/partly_sunny_small" />
+            <TextView
+                android:id="@+id/temp_forecast_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="35sp"
+                android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/cond_forecast_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sunny"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/day_forecast_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="tue"
+                android:text="-"
                 android:textAllCaps="true"
                 android:textColor="#909090" />
         </LinearLayout>
@@ -212,16 +253,30 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                app:srcCompat="@drawable/windy_small" />
+            <TextView
+                android:id="@+id/temp_forecast_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="35sp"
+                android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/cond_forecast_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sunny"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/day_forecast_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="thu"
+                android:text="-"
                 android:textAllCaps="true"
                 android:textColor="#909090" />
         </LinearLayout>
@@ -233,16 +288,30 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                app:srcCompat="@drawable/sunny_small" />
+            <TextView
+                android:id="@+id/temp_forecast_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="35sp"
+                android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/cond_forecast_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sunny"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/day_forecast_4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="fri"
+                android:text="-"
                 android:textAllCaps="true"
                 android:textColor="#909090" />
         </LinearLayout>
