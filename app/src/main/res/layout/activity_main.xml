@@ -54,7 +54,7 @@
             android:onClick="btnClick"
             android:paddingLeft="40dp"
             android:paddingRight="40dp"
-            android:text="Go to calendar"
+            android:text="Refresh weather"
             android:textColor="#50ffffff" />
     </LinearLayout>
 

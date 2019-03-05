@@ -45,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         if (!isNetworkConnected(this))
         {
-            Toast.makeText(this, "No Internet connection.Please check your setting.", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "No Internet connection.Please check your setting.", Toast.LENGTH_SHORT).show();
+            showToast("No Internet connection.Please check your setting.", Toast.LENGTH_SHORT);
             return;
         }
         else
@@ -62,7 +63,8 @@ public class MainActivity extends AppCompatActivity {
         new DownloadUpdate().execute();
     }
 
-    public boolean isNetworkConnected(Context context) {
+    public boolean isNetworkConnected(Context context)
+    {
         if (context != null)
         {
             ConnectivityManager mConnectivityManager = (ConnectivityManager) context
@@ -74,7 +76,12 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return false;
-        }
+    }
+
+    private void showToast(String text, int time)
+    {
+        Toast.makeText(this, text, time).show();
+    }
 
     // This class is used to parse json file obtain from web weather forecast api.
     private class WeatherParser
@@ -150,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
 
             for (int i = 0; i < 5; i++)
             {
-                days[i] = mWeekDays[c.get(Calendar.DAY_OF_WEEK)+i];
+                days[i] = mWeekDays[(c.get(Calendar.DAY_OF_WEEK)+i) % 7];
             }
             return days;
         }
@@ -233,7 +240,6 @@ public class MainActivity extends AppCompatActivity {
                 if (buffer.length() == 0) {
                     return null;
                 }
-                //The temperature
                 return buffer.toString();
 
             } catch (MalformedURLException e) {
@@ -254,6 +260,11 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String temperature) {
             try
             {
+                if (temperature == null)
+                {
+                    showToast("Update weather fail.", Toast.LENGTH_SHORT);
+                    return;
+                }
                 //Update the temperature displayed
                 WeatherParser parser = new WeatherParser(temperature);
                 ((TextView) findViewById(R.id.tv_location)).setText(parser.getCityName());
@@ -276,6 +287,8 @@ public class MainActivity extends AppCompatActivity {
                 ((TextView) findViewById(R.id.day_forecast_2)).setText(daysOfWeek[2]);
                 ((TextView) findViewById(R.id.day_forecast_3)).setText(daysOfWeek[3]);
                 ((TextView) findViewById(R.id.day_forecast_4)).setText(daysOfWeek[4]);
+                showToast("Update weather successfully", Toast.LENGTH_SHORT);
+
             }
             catch (JsonIOException e)
             {
